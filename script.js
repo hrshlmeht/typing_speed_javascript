@@ -1,4 +1,6 @@
 const RANDOM_QUOTE_API = 'http://api.quotable.io/random'
+const  quoteDisplayElement = document.getElementById('quoteDisplay')
+const quoteInputElement = document.getElementById('quoteInput')
 
 function getRandomQuote(){
    return fetch(RANDOM_QUOTE_API)
@@ -6,9 +8,16 @@ function getRandomQuote(){
     .then(data => data.content )
 }
 
-async function getNextQuote(){
+async function renderNewQuote(){
     const quote = await getRandomQuote()
-    console.log(quote)
+    quoteDisplayElement.innerText = ''
+    quote.split('').forEach(character =>{
+        const characterSpan = document.createElement('span')
+        characterSpan.classList.add('correct')
+        characterSpan.innerText = character
+        quoteDisplayElement.appendChild(characterSpan)
+    })
+    quoteInputElement.value = null
 }
 
-getNextQuote()
+renderNewQuote()
