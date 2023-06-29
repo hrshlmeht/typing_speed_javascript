@@ -22,12 +22,25 @@ body , .quote-input{
     max-width: 90%;
 }
 
-.timer{
+@keyframes flash {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .timer {
     position: absolute;
-    top:2rem;
-    font-size :3rem;
+    top: 2rem;
+    font-size: 3rem;
     font-weight: bold;
-}
+    animation: flash 1s infinite;
+  }
 
 .quote-display{
     margin-bottom :1rem;
@@ -58,3 +71,35 @@ body , .quote-input{
     color : red;
     text-decoration: underline ;
 }
+
+.container {
+    display: none; /* Hide the container initially */
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-30px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  #startButton {
+    background-color: darkblue;
+    color: white;
+    animation: bounce 1.5s infinite;
+    width: 200px;
+    height: 60px;
+    font-size: 18px;
+    border-radius: 50px; /* Add rounded borders */
+  }

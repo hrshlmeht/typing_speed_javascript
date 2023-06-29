@@ -3,7 +3,8 @@ const quoteDisplayElement = document.getElementById('quoteDisplay');
 const quoteInputElement = document.getElementById('quoteInput');
 const timerElement = document.getElementById('timer');
 const resultsElement = document.getElementById('results');
-
+var startButton = document.getElementById('startButton');
+var container = document.querySelector('.container');
 let totalCharactersTyped = 0;
 
 quoteInputElement.addEventListener('input', () => {
@@ -68,5 +69,9 @@ function getTimerTime() {
     return Math.floor((new Date() - startTime) / 1000);
 }
 
-renderNewQuote();
-startTimer();
+startButton.addEventListener('click', function() {
+    startButton.style.display = 'none'; //hides the start button after clicking 
+    container.style.display = 'block';//shows the divison after clicking the button 
+    renderNewQuote();
+    startTimer();
+});
