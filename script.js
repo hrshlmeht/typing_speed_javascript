@@ -54,15 +54,25 @@ function startTimer() {
     totalCharactersTyped = 0;
     timerElement.innerText = 0;
     startTime = new Date();
-    const timerInterval = setInterval(() => {
+    let timerInterval;
+    
+    timerInterval = setInterval(() => {
         const elapsedTime = getTimerTime();
         timerElement.innerText = elapsedTime;
         if (elapsedTime >= 60) {
             clearInterval(timerInterval);
-            resultsElement.innerText = `Total characters typed: ${totalCharactersTyped}`;
+            resultsElement.innerText = `Times up! \u{1F641} Total characters typed: ${totalCharactersTyped}`;
             renderNewQuote(); // Render new quote after the timer is completed
         }
     }, 1000);
+
+    setTimeout(showResultTab, 60000); // Show the result tab after 60 seconds
+}
+
+
+function showResultTab() {
+    const resultTab = document.getElementById("results");
+    resultTab.style.display = "block"; // Display the result tab
 }
 
 function getTimerTime() {
@@ -70,8 +80,10 @@ function getTimerTime() {
 }
 
 startButton.addEventListener('click', function() {
-    startButton.style.display = 'none'; //hides the start button after clicking 
-    container.style.display = 'block';//shows the divison after clicking the button 
+    startButton.style.display = 'none'; // hides the start button after clicking
+    typingGifContainer.style.display = 'none'; // hides the div with the GIF after clicking the button
+    container.style.display = 'block'; // shows the division after clicking the button
     renderNewQuote();
     startTimer();
 });
+
