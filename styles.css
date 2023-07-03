@@ -34,7 +34,18 @@ body, .quote-input {
     top: 2rem;
     font-size: 3rem;
     font-weight: bold;
-    animation: blink 1s infinite, colorChange 5s linear 55s forwards;
+    opacity: 1;
+    animation: colorChange 5s linear 55s forwards;
+  }
+  
+  @keyframes colorChange {
+    0%, 94.74% {
+      color: inherit;
+    }
+    94.75%, 100% {
+      color: maroon;
+      animation: blink 1s infinite;
+    }
   }
   
   @keyframes blink {
@@ -43,15 +54,6 @@ body, .quote-input {
     }
     50%, 100% {
       opacity: 0;
-    }
-  }
-  
-  @keyframes colorChange {
-    0%, 94.74% {
-      color: inherit;
-    }
-    94.75%, 100% {
-      color: red;
     }
   }
 
