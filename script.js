@@ -4,8 +4,11 @@ const quoteInputElement = document.getElementById('quoteInput');
 const timerElement = document.getElementById('timer');
 const resultsElement = document.getElementById('results');
 var startButton = document.getElementById('startButton');
+const submitButton = document.getElementById("button-submitted");
+const startContainer = document.querySelector(".start-container");
 var container = document.querySelector('.container');
 const greetingContainer = document.querySelector('.greeting-container');
+const formContainer = document.getElementById('form-container')
 let totalCharactersTyped = 0;
 let correctWords = 0;
 
@@ -37,6 +40,20 @@ let correctWords = 0;
 //     }
 // });
 
+submitButton.addEventListener("click", function(event) {
+    // Prevent form submission (if using within a form)
+    event.preventDefault();
+  
+    // Hide the submit button
+    submitButton.style.display = "none";
+  
+    // Show the start container
+    startContainer.style.display = "block";
+
+    //hide thw form
+    formContainer.style.display = 'none'
+    
+  });
 quoteInputElement.addEventListener('input', () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span');
     const arrayValue = quoteInputElement.value.split('');
@@ -136,11 +153,11 @@ function getTimerTime() {
 }
 
 startButton.addEventListener('click', function() {
-    startButton.style.display = 'none'; // hides the start button after clicking
-    typingGifContainer.style.display = 'none'; // hides the div with the GIF after clicking the button
-    container.style.display = 'block'; // shows the division after clicking the button
+    startButton.style.display = 'none';
+    formContainer.style.display = 'none'
+    container.style.display = 'block';
     greetingContainer.style.display = 'none';
     renderNewQuote();
     startTimer();
-});
-
+  
+  });

@@ -16,20 +16,44 @@
         <div class="circle large shade3"></div>
         <div class="circle medium shade4"></div>
         <div class="circle small shade5"></div>
-      </div>
-      <div class="greeting-container">
+    </div>
+    <div class="greeting-container">
         <div class="hand">👋</div>
-        <div class="message">Hello !! Welcome to the one minute typing test!</div>
-      </div>
-      <div class="typing-gif-container" id="typingGifContainer">
-        <img src="typing_gif.gif" alt="Typing GIF" class="typing-gif">
-      </div>
-    <button class ="button-73" id="startButton" role = "button ">Click to start!</button>
+        <div class="message">Hello !! Welcome to the one-minute typing test!</div>
+    </div>
+    <div class="start-container">
+    <button class="button-73" id="startButton" role="button">Click to start!</button>
+    </div>
     <div class="timer" id="timer"></div>
     <div class="container">
         <div class="quote-display" id="quoteDisplay"></div>
         <textarea id="quoteInput" class="quote-input" autofocus></textarea>
     </div>
     <div class="result-tab" id="results"></div> 
+
+    <!-- Add the form here -->
+    <div class="form-container" id = form-container>
+        <h2>Student Details</h2>
+        <form id="studentForm">
+          <div class="form-field">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+          <div class="form-field">
+            <label for="rollNumber">Roll Number:</label>
+            <input type="text" id="rollNumber" name="rollNumber" class="small-input" required>
+          </div>
+          <div class="form-field">
+            <label for="division">Division:</label>
+            <input type="text" id="division" name="division" class="small-input" required>
+          </div>
+          <div class="form-field">
+            <label for="class">Class:</label>
+            <input type="text" id="class" name="class" class="small-input" required>
+          </div>
+            
+            <button type="submit" id = "button-submitted">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
