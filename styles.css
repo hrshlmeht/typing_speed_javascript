@@ -15,6 +15,10 @@ body, .quote-input {
   max-width: 90%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes flash {
@@ -299,3 +303,43 @@ body{
 }
 
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+.greeting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Adjust the margin-top value as desired */
+  overflow: hidden;
+}
+
+.greeting-container .hand {
+  font-size: 5rem;
+  animation: wave 2s infinite;
+  transform-origin: bottom;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(-45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(0deg) translateY(5px);
+  }
+  75% {
+    transform: rotate(45deg) translateY(0);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}

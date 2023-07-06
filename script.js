@@ -5,6 +5,7 @@ const timerElement = document.getElementById('timer');
 const resultsElement = document.getElementById('results');
 var startButton = document.getElementById('startButton');
 var container = document.querySelector('.container');
+const greetingContainer = document.querySelector('.greeting-container');
 let totalCharactersTyped = 0;
 let correctWords = 0;
 
@@ -36,12 +37,6 @@ let correctWords = 0;
 //     }
 // });
 
-
-
-
-
-
-// ************function to calculate with the spaces as well  */
 quoteInputElement.addEventListener('input', () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span');
     const arrayValue = quoteInputElement.value.split('');
@@ -67,7 +62,11 @@ quoteInputElement.addEventListener('input', () => {
         totalCharactersTyped += valueWithoutSpaces.length;
         renderNewQuote(); // Render new quote after the current quote is finished
     }
-})
+});
+
+
+
+
 
 function getRandomQuote() {
     return fetch(RANDOM_QUOTE_API)
@@ -140,6 +139,7 @@ startButton.addEventListener('click', function() {
     startButton.style.display = 'none'; // hides the start button after clicking
     typingGifContainer.style.display = 'none'; // hides the div with the GIF after clicking the button
     container.style.display = 'block'; // shows the division after clicking the button
+    greetingContainer.style.display = 'none';
     renderNewQuote();
     startTimer();
 });
