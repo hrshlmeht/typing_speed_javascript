@@ -11,6 +11,22 @@ const greetingContainer = document.querySelector('.greeting-container');
 const formContainer = document.getElementById('form-container')
 let totalCharactersTyped = 0;
 let correctWords = 0;
+const preventCopyPasteContainer = document.getElementById("preventCopyPaste");
+
+// Disable copy event
+preventCopyPasteContainer.addEventListener("copy", function(event) {
+  event.preventDefault();
+});
+
+// Disable cut event
+preventCopyPasteContainer.addEventListener("cut", function(event) {
+  event.preventDefault();
+});
+
+// Disable paste event
+preventCopyPasteContainer.addEventListener("paste", function(event) {
+  event.preventDefault();
+})
 
 //*********function to calculate the words typed per minute.*************/
 // quoteInputElement.addEventListener('input', () => {

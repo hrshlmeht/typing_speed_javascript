@@ -448,3 +448,11 @@ h2 {
 .start-container {
   display: none;
 }
+
+
+.prevent-copy-paste {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, supported by most modern browsers */
+}
