@@ -142,18 +142,15 @@ function startTimer() {
     timerElement.innerText = 0;
     startTime = new Date();
     let timerInterval;
-    
+
     timerInterval = setInterval(() => {
         const elapsedTime = getTimerTime();
         timerElement.innerText = elapsedTime;
         if (elapsedTime >= 60) {
             clearInterval(timerInterval);
-            resultsElement.innerText = `Times up! \u{1F641}\nYou typed: ${totalCharactersTyped} chars in a minute! \u{1F600}\u{1F44D}`;
-            renderNewQuote(); // Render new quote after the timer is completed
+            showResultTab(); // Show the result tab after 60 seconds
         }
     }, 1000);
-
-    setTimeout(showResultTab, 60000); // Show the result tab after 60 seconds
 }
 
 function startTimer2() {
@@ -161,23 +158,28 @@ function startTimer2() {
     timerElement.innerText = 0;
     startTime = new Date();
     let timerInterval;
-    
+
     timerInterval = setInterval(() => {
         const elapsedTime = getTimerTime();
         timerElement.innerText = elapsedTime;
         if (elapsedTime >= 60) {
             clearInterval(timerInterval);
-            resultsElement.innerText = `Times up! \u{1F641}\nYou typed: ${totalCharactersTyped} chars in a minute! \u{1F600}\u{1F44D}`;
-            renderNewWord(); // Render new quote after the timer is completed
+            showResultTab(); // Show the result tab after 60 seconds
         }
     }, 1000);
-
-    setTimeout(showResultTab, 60000); // Show the result tab after 60 seconds
 }
 
 function showResultTab() {
     const resultTab = document.getElementById("results");
+    resultTab.innerHTML = `Your results! \u{1F44D}  <br> You typed ${totalCharactersTyped} characters.\u{1F604}`;
     resultTab.style.display = "block"; // Display the result tab
+    document.getElementById("overlay").classList.add('blur'); // Add blur to overlay
+}
+
+function hideResultTab() {
+    const resultTab = document.getElementById("results");
+    resultTab.style.display = "none"; // Hide the result tab
+    document.getElementById("overlay").classList.remove('blur'); // Remove blur from overlay
 }
 
 function getTimerTime() {
@@ -190,7 +192,8 @@ startButton.addEventListener('click', function() {
     quoteInputElement.removeEventListener('input', wordModeInputEventListener);
     quoteInputElement.addEventListener('input', quoteModeInputEventListener);
     startButton.style.display = 'none';
-    formContainer.style.display = 'none'
+    startbutton2.style.display = 'none';
+    formContainer.style.display = 'none';
     container.style.display = 'block';
     greetingContainer.style.display = 'none';
     renderNewQuote();

@@ -8,6 +8,10 @@ body, .quote-input {
   font-size: 30px; /* Adjust the value to your desired font size */
 }
 
+body, html {
+  height: 100%;
+}
+
 .container {
   background-color: white;
   padding: 1rem;
@@ -279,6 +283,7 @@ body{
 }
 
 .result-tab {
+  z-index: 3;
   backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.8);
   display: none;
@@ -330,7 +335,7 @@ body {
 
 .greeting-container .hand {
   font-size: 5rem;
-  animation: wave 2s infinite;
+  animation: wave 1s infinite;
   transform-origin: bottom;
 }
 
@@ -457,4 +462,17 @@ h2 {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, supported by most modern browsers */
+}
+
+
+#overlay.blur {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  z-index: 2;
 }
